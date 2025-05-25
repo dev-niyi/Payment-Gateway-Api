@@ -46,8 +46,9 @@ class PaymentCreateView(APIView):
             )
         
         return Response({
-            'ErrorMessage' : "Bad Request"},
-            serializer.errors, status = status.HTTP_400_BAD_REQUEST
+            'ErrorMessage' : "Bad Request",
+            "error" :serializer.errors},
+            status = status.HTTP_400_BAD_REQUEST
         )
     
 #gets the status of the payment
